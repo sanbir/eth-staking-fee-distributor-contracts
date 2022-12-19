@@ -102,6 +102,11 @@ error FeeDistributor__ClientCannotReceiveEther(address _client);
 error FeeDistributor__ReferrerCannotReceiveEther(address _referrer);
 
 /**
+* @notice validator's balance on Beacon chain has never been updated
+*/
+error FeeDistributor__CL_balanceNotSet();
+
+/**
 * @title Contract receiving MEV and priority fees
 * and distributing them to the service and the client.
 */
@@ -131,6 +136,12 @@ contract FeeDistributor is OwnableTokenRecoverer, ReentrancyGuard, ERC165, IFeeD
     * @notice referrer config (address of the referrer, referrer basis points)
     */
     FeeRecipient private s_referrerConfig;
+
+    /**
+    * @notice validator's balance on Beacon chain
+    * @dev to be updated regularly by an oracle report
+    */
+    uint256 private s_CL_balance;
 
     /**
     * @dev Set values that are constant, common for all the clients, known at the initial deploy time.
@@ -233,6 +244,10 @@ contract FeeDistributor is OwnableTokenRecoverer, ReentrancyGuard, ERC165, IFeeD
             revert FeeDistributor__ClientNotSet();
         }
 
+        if (s_CL_balance == 0) {
+            revert FeeDistributor__CL_balanceNotSet();
+        }
+
         // get the contract's balance
         uint256 balance = address(this).balance;
 
@@ -256,6 +271,13 @@ contract FeeDistributor is OwnableTokenRecoverer, ReentrancyGuard, ERC165, IFeeD
         s_referrerConfig.recipient.sendValue(referrerAmount);
 
         emit Withdrawn(serviceAmount, clientAmount, referrerAmount);
+    }
+
+    /**
+    * @notice
+    */
+    function updateClBalance(uint256 _newClBalance) external onlyOwner {
+        s_CL_balance = _newClBalance;
     }
 
     /**
