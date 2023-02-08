@@ -25,6 +25,21 @@ interface IFeeDistributor is IERC165 {
         address payable recipient;
     }
 
+    /**
+    * @dev 256bits-wide structure to store CL data provided by an oracle.
+    */
+    struct OracleReport {
+        /**
+        * @notice validator's balance on Beacon chain in Wei
+        */
+        uint128 clBalance;
+
+        /**
+        * @notice total withdrawals from Beacon chain in Wei
+        */
+        uint128 clWithdrawals;
+    }
+
     // Events
 
     /**
