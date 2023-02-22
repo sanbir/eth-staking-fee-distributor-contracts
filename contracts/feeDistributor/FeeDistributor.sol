@@ -333,8 +333,8 @@ contract FeeDistributor is OwnableTokenRecoverer, ReentrancyGuard, ERC165, IFeeD
     * @dev To be called by oracle.
     */
     function oracleReport(uint256 _newClBalance, uint256 _newCLWithdrawals) external onlyOwner {
-        s_CL_balance = _newClBalance;
-        s_CL_Withdrawals = _newCLWithdrawals;
+//        s_CL_balance = _newClBalance;
+//        s_CL_Withdrawals = _newCLWithdrawals;
     }
 
     /**
