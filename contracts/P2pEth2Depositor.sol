@@ -27,21 +27,6 @@ contract P2pEth2Depositor {
     error P2pEth2Depositor__AmountOfParametersError();
 
     /**
-    * @notice wrong pubkey
-    */
-    error P2pEth2Depositor__WrongPubkey();
-
-    /**
-    * @notice wrong withdrawal credentials
-    */
-    error P2pEth2Depositor__WrongWithdrawalCredentials();
-
-    /**
-    * @notice wrong signatures
-    */
-    error P2pEth2Depositor__WrongSignatures();
-
-    /**
      * @dev Eth2 Deposit Contract address.
      */
     IDepositContract public immutable depositContract;
@@ -51,9 +36,6 @@ contract P2pEth2Depositor {
      */
     uint256 public constant nodesMinAmount = 1;
     uint256 public constant nodesMaxAmount = 1000;
-    uint256 public constant pubkeyLength = 48;
-    uint256 public constant credentialsLength = 32;
-    uint256 public constant signatureLength = 96;
 
     /**
      * @dev Collateral size of one node.
@@ -112,15 +94,7 @@ contract P2pEth2Depositor {
         }
 
         for (uint256 i = 0; i < nodesAmount;) {
-            if (pubkeys[i].length != pubkeyLength) {
-                revert P2pEth2Depositor__WrongPubkey();
-            }
-            if (withdrawal_credentials[i].length != credentialsLength) {
-                revert P2pEth2Depositor__WrongWithdrawalCredentials();
-            }
-            if (signatures[i].length != signatureLength) {
-                revert P2pEth2Depositor__WrongSignatures();
-            }
+            // pubkey, withdrawal_credentials, signature lengths are already checked inside ETH DepositContract
 
             depositContract.deposit{value: collateral}(
                 pubkeys[i],
