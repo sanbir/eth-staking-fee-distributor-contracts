@@ -27,8 +27,8 @@ contract TestLotsOfData {
     mapping(bytes32 => OracleReport) s_oracleReports;
 
     function report(
-        bytes32[] calldata pubKeys,
-        OracleReport[] calldata oracleReports
+        bytes32[] memory pubKeys,
+        OracleReport[] memory oracleReports
     ) external {
         uint256 length = pubKeys.length;
         require(length == oracleReports.length);
