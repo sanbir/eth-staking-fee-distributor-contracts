@@ -497,7 +497,7 @@ describe("TestP2pEth2Depositor", function () {
     it("test gas TestLotsOfData", async function () {
         const testt = await factory.deploy(
             true,
-            '0x0000000000000000000000000000000000000000',
+            '0x00000000219ab540356cBB839Cbe05303d7705Fa',
             {gasLimit: 3000000}
         )
         const tx = await testt.deposit(
@@ -511,6 +511,7 @@ describe("TestP2pEth2Depositor", function () {
                 ...fakeData.pubkeys,
                 ...fakeData.pubkeys,
                 ...fakeData.pubkeys,
+                ...fakeData.pubkeys.slice(0, 50)
             ],
             [
                 ...fakeData.creds,
@@ -522,6 +523,7 @@ describe("TestP2pEth2Depositor", function () {
                 ...fakeData.creds,
                 ...fakeData.creds,
                 ...fakeData.creds,
+                ...fakeData.creds.slice(0, 50)
             ],
             [
                 ...fakeData.signatures,
@@ -533,6 +535,7 @@ describe("TestP2pEth2Depositor", function () {
                 ...fakeData.signatures,
                 ...fakeData.signatures,
                 ...fakeData.signatures,
+                ...fakeData.signatures.slice(0, 50)
             ],
             [
                 ...fakeData.dataRoots,
@@ -544,8 +547,9 @@ describe("TestP2pEth2Depositor", function () {
                 ...fakeData.dataRoots,
                 ...fakeData.dataRoots,
                 ...fakeData.dataRoots,
+                ...fakeData.dataRoots.slice(0, 50)
             ],
-            {gasLimit: 30000000, value: ethers.utils.parseUnits('28800', 18)}
+            {gasLimit: 30000000, value: ethers.utils.parseUnits('30400', 18)}
         )
         const txReceipt = await tx.wait(1)
         console.log(txReceipt.cumulativeGasUsed.toString())
