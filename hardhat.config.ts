@@ -31,14 +31,17 @@ const config: HardhatUserConfig = {
         accountsBalance: '100000000000000000000000',
       },
       forking: {
-        url: MAINNET_RPC_URL,
-        blockNumber: 15789305
+        url: GOERLI_RPC_URL,
+        blockNumber: 8572213
       }
     },
     goerli: {
         url: GOERLI_RPC_URL,
         accounts: [PRIVATE_KEY],
         chainId: 5,
+      allowUnlimitedContractSize: true,
+      blockGasLimit: 30000000,
+      gas: 300000000000,
     },
     mainnet: {
       url: MAINNET_RPC_URL,
@@ -56,7 +59,7 @@ const config: HardhatUserConfig = {
         optimizer: {
             enabled: true,
             runs: 10000,
-            details: { yul: false },
+            details: { yul: true },
         },
     },
   },

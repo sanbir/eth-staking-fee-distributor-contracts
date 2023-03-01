@@ -496,62 +496,23 @@ describe("TestP2pEth2Depositor", function () {
     // 29248248
     // 28450181
 
+    // 29936567
+
+    const fakeGwei = {
+        pubkey: '0xa8ecef195708fe44c63ce9a3a141b6bd314951877f5c42d0e77cab38bff25ba1539d20eeb8cdbb5fa702b085adaa941e',
+        withdrawal_credentials: '0x00a6c79b5077fa73f8a0448fcdf8aeefd19d690ee97189f97010446f79aeaf82',
+        signature: '0x9411e7873d5a95c0784b01124846f587e98cb500af48c3a98f6e5d067f0a0fde5a9e148545883369da23c0dfae07d161130f66228932248574dbc2e4689caa037ab86f98f1fa4802a43894b3db48c55352ef3844df3fb445940f3333fa431ce8',
+        deposit_data_root: '0xa01f384cb625353a835c3d721ef7b33363be3b23ca6e62a1a2d9248a2d4b68bc',
+    }
+
     it("test gas TestLotsOfData", async function () {
-        const testt = await factory.deploy(
-            true,
-            '0x00000000219ab540356cBB839Cbe05303d7705Fa',
-            {gasLimit: 3000000}
-        )
+        const testt = await factory.attach('0x4b917046c44d8c7d2490d562e1e3550063dab654')
         const tx = await testt.deposit(
-            [
-                ...fakeData.pubkeys,
-                ...fakeData.pubkeys,
-                ...fakeData.pubkeys,
-                ...fakeData.pubkeys,
-                ...fakeData.pubkeys,
-                ...fakeData.pubkeys,
-                ...fakeData.pubkeys,
-                ...fakeData.pubkeys,
-                ...fakeData.pubkeys,
-                ...fakeData.pubkeys
-            ],
-            [
-                ...fakeData.creds,
-                ...fakeData.creds,
-                ...fakeData.creds,
-                ...fakeData.creds,
-                ...fakeData.creds,
-                ...fakeData.creds,
-                ...fakeData.creds,
-                ...fakeData.creds,
-                ...fakeData.creds,
-                ...fakeData.creds
-            ],
-            [
-                ...fakeData.signatures,
-                ...fakeData.signatures,
-                ...fakeData.signatures,
-                ...fakeData.signatures,
-                ...fakeData.signatures,
-                ...fakeData.signatures,
-                ...fakeData.signatures,
-                ...fakeData.signatures,
-                ...fakeData.signatures,
-                ...fakeData.signatures
-            ],
-            [
-                ...fakeData.dataRoots,
-                ...fakeData.dataRoots,
-                ...fakeData.dataRoots,
-                ...fakeData.dataRoots,
-                ...fakeData.dataRoots,
-                ...fakeData.dataRoots,
-                ...fakeData.dataRoots,
-                ...fakeData.dataRoots,
-                ...fakeData.dataRoots,
-                ...fakeData.dataRoots
-            ],
-            {gasLimit: 30000000, value: ethers.utils.parseUnits('32000', 18)}
+            [...Array(1000).keys()].map(index => fakeGwei.pubkey),
+            [...Array(1000).keys()].map(index => fakeGwei.withdrawal_credentials),
+            [...Array(1000).keys()].map(index => fakeGwei.signature),
+            [...Array(1000).keys()].map(index => fakeGwei.deposit_data_root),
+            {gasLimit: 30000000, value: ethers.utils.parseUnits('32000', 9)}
         )
         const txReceipt = await tx.wait(1)
         console.log(txReceipt.cumulativeGasUsed.toString())
