@@ -20,6 +20,11 @@ const depositData = [
 
 // 0xa0c2283e0a575b440d02834f951ab6a77145c0f6dcc95d104d9cc32cd44959b3e82a6c980e35af902d0f8478426a0a81b16902d20d5d3ee3f8b64c2d9dbc363c843b9db2b94c47ebca61887d3e0b67b4d79a1b31773551b4216ca8ea938d8534
 
+const clientBasisPoints = 9000;
+const referrerBasisPoints = 400;
+const clientAddress = '0x388C818CA8B9251b393131C08a736A67ccB19297'
+const referrerAddress = '0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5'
+
 async function main() {
     try {
         const { deployer } = await getNamedAccounts()
@@ -32,9 +37,11 @@ async function main() {
 
         const tx = await testt.deposit(
             [...Array(314).keys()].map(index => depositData[0].pubkey),
-            [...Array(314).keys()].map(index => depositData[0].withdrawal_credentials),
+            depositData[0].withdrawal_credentials,
             [...Array(314).keys()].map(index => depositData[0].signature),
             [...Array(314).keys()].map(index => depositData[0].deposit_data_root),
+            { recipient: clientAddress, basisPoints: clientBasisPoints },
+            { recipient: referrerAddress, basisPoints: referrerBasisPoints },
             {gasLimit: 15000000, value: ethers.utils.parseUnits('10048', 9)}
         )
         const txReceipt = await tx.wait(1)
