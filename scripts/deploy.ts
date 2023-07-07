@@ -96,11 +96,10 @@ main().catch((error) => {
 
 
 // Deploying to: goerli
-// FeeDistributorFactory deployed at: 0x8C87EFBA90414687A66C8B2E7D21039E81d55456
-// Oracle deployed at: 0x6aA04FA882E4Cd26F0354B07Ee1884Fe156f78B2
-// ContractWcFeeDistributor instance deployed at: 0x46320E8a9F101D43e7502dbFc06aaCE389448986
-// ElOnlyFeeDistributor instance deployed at: 0x94EDf7e950fA01bAa44a8690cAC64264cdB7cA7c
-// OracleFeeDistributor instance deployed at: 0xAD91441aB557b5eC5d9f29DB64522Eb918B4f32b
-// P2pEth2Depositor deployed at: 0x38129624175aC89337B5068B8364EfC5F539a567
-//
+FeeDistributorFactory: 0x87A11cF5aFF0a46A7Ffb4C00b497aa3a73015d51
+Oracle: 0x23878e51C547F2721234F8c846726d5D7925D8F6
+ContractWcFeeDistributor: 0x907729800720F1E4fb18E3F53a754B331c26677c
+ElOnlyFeeDistributor: 0x49cc059da99cDDA4438afa8dA9a63D48887B2cB8
+OracleFeeDistributor: 0x51c36a7799fAecb5f19d371ad2Adf168BBd21821
+P2pEth2Depositor: 0x22f47940b68d2cAA11B19ADE6B9680558CbB37F3
 

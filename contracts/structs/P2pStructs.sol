@@ -17,12 +17,10 @@ struct FeeRecipient {
 /// @member depositedCount the number of deposited validators
 /// @member exitedCount the number of validators requested to exit
 /// @member collateralReturnedCount the number of collaterals (multiples of 32 ETH) returned to the client
-/// @member reservedForFutureUse unused space making up to 256 bit. Can be some address in the future.
 struct ValidatorData {
     uint32 depositedCount;
     uint32 exitedCount;
     uint32 collateralReturnedCount;
-    uint160 reservedForFutureUse;
 }
 
 /// @dev status of the client deposit

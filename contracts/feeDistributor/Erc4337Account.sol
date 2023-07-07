@@ -55,7 +55,7 @@ abstract contract Erc4337Account is IAccount, IOwnableWithOperator {
     /// @notice Withdraw this contract's balance from EntryPoint back to this contract
     function withdrawFromEntryPoint() external {
         if (!(
-            msg.sender == owner() || msg.sender == operator() || msg.sender == client()
+            msg.sender == owner() || msg.sender == operator()
         )) {
             revert Erc4337Account__NotAllowedToWithdrawFromEntryPoint();
         }
