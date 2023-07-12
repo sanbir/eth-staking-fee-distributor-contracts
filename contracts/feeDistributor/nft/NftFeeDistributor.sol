@@ -3,9 +3,9 @@
 
 pragma solidity 0.8.10;
 
-import "../@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "../structs/P2pStructs.sol";
-import "../constants/P2pConstants.sol";
+import "../../@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "../../structs/P2pStructs.sol";
+import "../../constants/P2pConstants.sol";
 import "./BaseNftFeeDistributor.sol";
 
 /// @notice Need to pass at least 1 pubkey that needs to be exited

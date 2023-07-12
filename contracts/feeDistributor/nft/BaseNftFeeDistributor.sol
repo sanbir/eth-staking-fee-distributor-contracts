@@ -3,18 +3,18 @@
 
 pragma solidity 0.8.10;
 
-import "../@openzeppelin/contracts/security/ReentrancyGuard.sol";
-import "../@openzeppelin/contracts/utils/introspection/ERC165.sol";
-import "../@openzeppelin/contracts/utils/introspection/ERC165Checker.sol";
-import "../feeDistributorFactory/IFeeDistributorFactory.sol";
-import "../assetRecovering/OwnableTokenRecoverer.sol";
-import "../access/OwnableWithOperator.sol";
-import "./IFeeDistributor.sol";
-import "./FeeDistributorErrors.sol";
-import "../structs/P2pStructs.sol";
-import "../lib/P2pAddressLib.sol";
-import "./Erc4337Account.sol";
-import "./interfaces/INftManager.sol";
+import "../../@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "../../@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import "../../@openzeppelin/contracts/utils/introspection/ERC165Checker.sol";
+import "../../feeDistributorFactory/IFeeDistributorFactory.sol";
+import "../../assetRecovering/OwnableTokenRecoverer.sol";
+import "../../access/OwnableWithOperator.sol";
+import "../IFeeDistributor.sol";
+import "../FeeDistributorErrors.sol";
+import "../../structs/P2pStructs.sol";
+import "../../lib/P2pAddressLib.sol";
+import "../Erc4337Account.sol";
+import "../../nftManager/INftManager.sol";
 
 /// @notice Should be an NftManager contract
 /// @param _passedAddress passed address that does not support INftManager interface
