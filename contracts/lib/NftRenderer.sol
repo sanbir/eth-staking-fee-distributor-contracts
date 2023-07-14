@@ -7,6 +7,7 @@ import "Base64.sol";
 import "Strings.sol";
 import "IStakefishValidator.sol";
 import "Utils.sol";
+import "../feeDistributor/nft/INftFeeDistributor.sol";
 
 library NftRenderer {
     struct RenderParams {
@@ -15,7 +16,7 @@ library NftRenderer {
         address nftManager;
         uint256 validatorIndex;
         bytes validatorPubkey;
-        IValidator.StateChange state;
+        INftFeeDistributor.State state;
     }
 
     function render(RenderParams memory params) public pure returns (string memory) {

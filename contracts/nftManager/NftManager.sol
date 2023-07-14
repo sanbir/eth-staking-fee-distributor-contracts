@@ -6,13 +6,14 @@ pragma solidity 0.8.10;
 import "../@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "../@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "./INftManager.sol";
-import "../feeDistributorFactory/IFeeDistributorFactory.sol";
+import "../feeDistributor/nft/INftFeeDistributor.sol";
+import "../p2pEth2Depositor/IP2pOrgUnlimitedEthDepositor.sol";
 
 /// @title NftManager implementation
 /// @notice Extends ERC721, mints and burns NFT representing validators
 contract NftManager is INftManager, ERC721Enumerable, ReentrancyGuard {
 
-    IFeeDistributorFactory public immutable override i_factory;
+    IP2pOrgUnlimitedEthDepositor public immutable override i_depositor;
 
     /// @dev deployed validator contract => tokenId
     mapping(address => uint256) private s_validatorToToken;
@@ -23,9 +24,13 @@ contract NftManager is INftManager, ERC721Enumerable, ReentrancyGuard {
     /// @dev The ID of the next token that will be minted.
     uint256 internal s_nextId = 1;
 
-    constructor(address _factory) ERC721("P2P Validator", "P2P") {
-        require(_factory != address(0), "missing factory");
-        i_factory = _factory;
+    constructor(address _depositor) ERC721("P2P Validator", "P2P") {
+        require(_depositor != address(0), "missing depositor");
+        i_depositor = _depositor;
+    }
+
+    function setReferenceFeeDistributor() {
+
     }
 
     function mint(uint256 _validatorCount) external override payable nonReentrant {
@@ -75,13 +80,13 @@ contract NftManager is INftManager, ERC721Enumerable, ReentrancyGuard {
 
     function tokenURI(uint256 tokenId) public view override(ERC721, IERC721Metadata) returns (string memory)
     {
-        IValidator validator = IValidator(validatorForTokenId(tokenId));
+        INftFeeDistributor validator = INftFeeDistributor(validatorForTokenId(tokenId));
         return validator.render();
     }
 
     function _mintOne() internal {
         uint256 tokenId = s_nextId++;
-        address validatorAddr = IFeeDistributorFactory(i_factory).createValidator{value: 32 ether}(tokenId);
+        address validatorAddr = i_depositor.addEth{value: 32 ether}(tokenId);
 
         _mint(msg.sender, tokenId);
 
