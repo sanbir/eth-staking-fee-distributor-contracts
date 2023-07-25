@@ -38,6 +38,7 @@
     "typechain": "yarn hardhat typechain",
     "size": "yarn run hardhat size-contracts",
     "deployToGoerli": "yarn hardhat run --network goerli scripts/deploy.ts",
+    "deployBatchFactory": "yarn hardhat run --network goerli scripts/deployBatchFactory.ts",
     "deployP2pMessageSender": "yarn hardhat run --network goerli scripts/deployP2pMessageSender.ts",
     "testLotsOfCalldata": "yarn hardhat run --network goerli scripts/testLotsOfCalldata.ts",
     "fetchFromBigQuery": "yarn hardhat run --network goerli scripts/fetchFromBigQuery.ts",
