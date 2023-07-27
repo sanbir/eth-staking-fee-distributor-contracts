@@ -12,10 +12,10 @@ async function main() {
         console.log('Deploying to: ' + chainName)
 
         const BatchFactory = await new BatchFactory__factory(deployerSigner).deploy(
-            '0xE9DfC1850110DadF68402Ec6AD2B9bDfB7980733', {
+            '0xd5B7680f95c5A6CAeCdBBEB1DeE580960C4F891b', {
                 gasLimit: 1000000,
-                maxPriorityFeePerGas: 60000000000,
-                maxFeePerGas: 600000000000,
+                maxPriorityFeePerGas: 1000000000,
+                maxFeePerGas: 20000000000,
                 nonce
             }
         )
@@ -38,6 +38,10 @@ main().catch((error) => {
 // Deploying to: goerli
 // BatchFactory deployed at: 0xF54349C0fAA8Df52121e2637822E04f72687Ca4F
 //
+
+// Deploying to: homestead
+// BatchFactory deployed at: 0xa0D1833cA948143f9dfDfF593788104E9DE34c3f
+
 
 
 
