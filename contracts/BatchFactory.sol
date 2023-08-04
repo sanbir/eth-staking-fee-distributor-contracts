@@ -34,7 +34,9 @@ contract BatchFactory is OwnableWithOperator {
                 FeeRecipient({basisPoints: 0, recipient: payable(address(0))})
             )));
 
-            newFeeDistributor.setClientOnlyClRewards(clientOnlyClRewardsArray[i]);
+            if (clientOnlyClRewardsArray[i] != 0) {
+                newFeeDistributor.setClientOnlyClRewards(clientOnlyClRewardsArray[i]);
+            }
 
             unchecked {
                 ++i;

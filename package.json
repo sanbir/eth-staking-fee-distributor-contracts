@@ -40,7 +40,7 @@
     "typechain": "yarn hardhat typechain",
     "size": "yarn run hardhat size-contracts",
     "deployToGoerli": "yarn hardhat run --network goerli scripts/deploy.ts",
-    "deployBatchFactory": "yarn hardhat run --network mainnet scripts/deployBatchFactory.ts",
+    "deployBatchFactory": "yarn hardhat run --network goerli scripts/deployBatchFactory.ts",
     "main": "yarn hardhat run --network goerli scripts/main.ts",
     "testErc4337OnGoerli": "yarn hardhat run --network goerli scripts/testErc4337OnGoerli.ts",
     "sendErc4337UserOperation": "yarn hardhat run --network goerli scripts/sendErc4337UserOperation.ts",

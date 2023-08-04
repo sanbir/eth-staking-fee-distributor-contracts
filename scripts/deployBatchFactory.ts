@@ -13,13 +13,32 @@ async function main() {
         const {name: chainName, chainId} = await ethers.provider.getNetwork()
         console.log('Deploying to: ' + chainName)
 
-        const feeDistributorFactorySignedByDeployer = await new BatchFactory__factory(deployerSigner).deploy(
-            '0x86a9f3e908b4658A1327952Eb1eC297a4212E1bb',
-            '0x7109DeEb07aa9Eed1e2613F88b2f3E1e6C05163f',
-            {gasLimit: 1200000, maxPriorityFeePerGas: 100000000, maxFeePerGas: 16000000000}
+        const batchFactoryOperator = '0x9c7d4b4595402ed44167C74f9F7c7720AB5528E0'
+        const feeDistributorFactoryAddress = '0x3FD4f7B62f6C17F8C1fB338c5b74B21873FF4385'
+        const batchFactoryAddress = '0x8730D0be30c75f8cAb2805916D52C9F408E85e7a'
+
+        // const batchFactory = await new BatchFactory__factory(deployerSigner).deploy(
+        //     '0x3FD4f7B62f6C17F8C1fB338c5b74B21873FF4385',
+        //     '0x6bb18EB3FbFF556d8b02E8eaDc5F51f21436Ec79',
+        //     {gasLimit: 1200000, maxPriorityFeePerGas: 100000000, maxFeePerGas: 16000000000}
+        // )
+        // await batchFactory.deployed()
+        // console.log('BatchFactory deployed at: ' +  batchFactory.address)
+
+
+        const batchFactory = new BatchFactory__factory(deployerSigner).attach(
+            batchFactoryAddress
         )
-        await feeDistributorFactorySignedByDeployer.deployed()
-        console.log('FeeDistributorFactory deployed at: ' +  feeDistributorFactorySignedByDeployer.address)
+        const tx1 = await batchFactory.changeOperator(batchFactoryOperator, {
+            gasLimit: 200000, maxPriorityFeePerGas: 100000000, maxFeePerGas: 16000000000
+        })
+        await tx1.wait(1)
+
+        const feeDistributorFactory = new FeeDistributorFactory__factory(deployerSigner).attach(feeDistributorFactoryAddress)
+        const tx2 = await feeDistributorFactory.changeOperator(batchFactoryAddress, {
+            gasLimit: 200000, maxPriorityFeePerGas: 100000000, maxFeePerGas: 16000000000
+        })
+        await tx2.wait(1)
 
         console.log('Done.')
     } catch (err) {
