@@ -13,7 +13,7 @@ async function main() {
         const {name: chainName, chainId} = await ethers.provider.getNetwork()
         console.log('Deploying to: ' + chainName)
 
-        const batchFactoryOperator = '0x9c7d4b4595402ed44167C74f9F7c7720AB5528E0'
+        const batchFactoryOperator = '0x4405935b7C354294fEA4ac58703cBfDd0C966F99'
         const feeDistributorFactoryAddress = '0x3FD4f7B62f6C17F8C1fB338c5b74B21873FF4385'
         const batchFactoryAddress = '0x8730D0be30c75f8cAb2805916D52C9F408E85e7a'
 
@@ -34,11 +34,11 @@ async function main() {
         })
         await tx1.wait(1)
 
-        const feeDistributorFactory = new FeeDistributorFactory__factory(deployerSigner).attach(feeDistributorFactoryAddress)
-        const tx2 = await feeDistributorFactory.changeOperator(batchFactoryAddress, {
-            gasLimit: 200000, maxPriorityFeePerGas: 100000000, maxFeePerGas: 16000000000
-        })
-        await tx2.wait(1)
+        // const feeDistributorFactory = new FeeDistributorFactory__factory(deployerSigner).attach(feeDistributorFactoryAddress)
+        // const tx2 = await feeDistributorFactory.changeOperator(batchFactoryAddress, {
+        //     gasLimit: 200000, maxPriorityFeePerGas: 100000000, maxFeePerGas: 16000000000
+        // })
+        // await tx2.wait(1)
 
         console.log('Done.')
     } catch (err) {
