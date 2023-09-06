@@ -25,7 +25,8 @@
     "solidity-coverage": "0.7.18",
     "ts-node": "10.9.1",
     "typechain": "8.1.0",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "log4js": "6.9.1"
   },
   "scripts": {
     "test:hh": "hardhat test",

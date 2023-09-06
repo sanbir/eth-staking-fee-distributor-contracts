@@ -9,7 +9,6 @@ export async function getIitialClientOnlyClRewards() {
         {oracleId: 2, firstValidatorId: 486009, validatorCount: 37},
         {oracleId: 2, firstValidatorId: 486382, validatorCount: 40},
 
-        {oracleId: 3, firstValidatorId: 546962, validatorCount: 1},
         {oracleId: 4, firstValidatorId: 551909, validatorCount: 5},
         {oracleId: 5, firstValidatorId: 526709, validatorCount: 24},
         {oracleId: 6, firstValidatorId: 521543, validatorCount: 1},

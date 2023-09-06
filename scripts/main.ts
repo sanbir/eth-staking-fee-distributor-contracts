@@ -4,8 +4,11 @@ import { makeOracleReport } from "./makeOracleReport"
 import { withdrawAll } from "./withdrawAll"
 import { getIitialClientOnlyClRewards } from "./getIitialClientOnlyClRewards"
 import { ethers, getNamedAccounts } from "hardhat"
+import { getLegacyClientOnlyClRewards } from "./getLegacyClientOnlyClRewards"
 
 async function main() {
+    const fdsWithLegacyClientOnlyClRewards = await getLegacyClientOnlyClRewards()
+
     const { deployer } = await getNamedAccounts()
     const settings = {
         gasLimit: 200000,
@@ -15,6 +18,16 @@ async function main() {
     const feeDistributorFactoryAddress = "0xd5B7680f95c5A6CAeCdBBEB1DeE580960C4F891b"
 
     const validatorDataArray = await getIitialClientOnlyClRewards()
+
+    for (const item of validatorDataArray) {
+        const fd = fdsWithLegacyClientOnlyClRewards.find(f => f.oracleId === item.oracleId)
+
+        if (!fd) {
+            throw new Error('fd not found')
+        }
+
+        item.sum += fd.legacyClientOnlyClRewards
+    }
 
     const batchRewardData = validatorDataArray.map(d => ([
         d.oracleId,
