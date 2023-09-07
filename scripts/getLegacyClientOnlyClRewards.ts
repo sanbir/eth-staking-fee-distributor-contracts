@@ -1,4 +1,5 @@
 import { getLegacyClientOnlyClRewardsOne } from "./getLegacyClientOnlyClRewardsOne"
+import { logger } from "./logger"
 
 const fds = [
     {oracleId: 1, feeDivider: '0x05660a51A688E9F102f0bF46Cb6e64efc3381408'},
@@ -18,6 +19,8 @@ const fds = [
 ]
 
 export async function getLegacyClientOnlyClRewards() {
+    logger.info('getLegacyClientOnlyClRewards Started')
+
     const fdsWithLegacyClientOnlyClRewards: {oracleId: number, feeDivider: string, legacyClientOnlyClRewards: number}[] = []
 
     for (const fd of fds) {
@@ -27,6 +30,8 @@ export async function getLegacyClientOnlyClRewards() {
             {...fd, legacyClientOnlyClRewards}
         )
     }
+
+    logger.info('getLegacyClientOnlyClRewards finished')
 
     return fdsWithLegacyClientOnlyClRewards
 }

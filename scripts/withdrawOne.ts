@@ -1,5 +1,6 @@
 import { FeeDistributor__factory } from "../typechain-types"
 import { ethers, getNamedAccounts } from "hardhat"
+import { logger } from "./logger"
 
 export async function withdrawOne(
     feeDistributorAddress: string,
@@ -10,6 +11,8 @@ export async function withdrawOne(
         nonce: number
     }
 ) {
+    logger.info('withdrawOne started for ' + feeDistributorAddress)
+
     const { deployer } = await getNamedAccounts()
     const deployerSigner = await ethers.getSigner(deployer)
 
@@ -20,14 +23,16 @@ export async function withdrawOne(
 
     const balance = await ethers.provider.getBalance(feeDistributor.address);
     if (balance.gt(0)) {
-        console.log(feeDistributor.address, 'will withdraw')
+        logger.info(feeDistributor.address, 'will withdraw')
 
         const tx = await feeDistributor.withdraw(proof, amountInGwei, settings)
         await tx.wait(1)
         settings.nonce += 1
 
-        console.log(feeDistributor.address, 'withdrew')
+        logger.info(feeDistributor.address, 'withdrew')
     } else {
-        console.log(feeDistributor.address, '0 balance')
+        logger.info(feeDistributor.address, '0 balance')
     }
+
+    logger.info('withdrawOne finished for ' + feeDistributorAddress)
 }

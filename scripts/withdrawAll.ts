@@ -2,6 +2,7 @@ import { getFeeDistributorsFromLogs } from "./getFeeDistributorsFromLogs"
 import { withdrawOne } from "./withdrawOne"
 import { obtainProof } from "./obtainProof"
 import { getFirstValidatorIdAndValidatorCount } from "./getFirstValidatorIdAndValidatorCount"
+import { logger } from "./logger"
 
 export async function withdrawAll(
     feeDistributorFactoryAddress: string,
@@ -9,6 +10,8 @@ export async function withdrawAll(
         gasLimit: number,
         nonce: number
     }) {
+    logger.info('withdrawAll started')
+
     const feeDistributorsAddresses = await getFeeDistributorsFromLogs(feeDistributorFactoryAddress)
 
     // sequential for now due to nonces
@@ -21,4 +24,7 @@ export async function withdrawAll(
             console.log(feeDistributorsAddress, err)
         }
     }
+
+
+    logger.info('withdrawAll finished')
 }

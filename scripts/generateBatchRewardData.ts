@@ -1,6 +1,7 @@
 import { BigQuery } from "@google-cloud/bigquery"
 import { getFeeDistributorsFromLogs } from "./getFeeDistributorsFromLogs"
 import { getFirstValidatorIdAndValidatorCount } from "./getFirstValidatorIdAndValidatorCount"
+import { logger } from "./logger"
 
 export async function generateBatchRewardData(feeDistributorFactoryAddress: string) {
     const feeDistributorAddresses = await getFeeDistributorsFromLogs(feeDistributorFactoryAddress)
@@ -30,6 +31,8 @@ export function groupAndSum(
 const isGoerli = false
 
 export async function getRowsFromBigQuery(valIds: number[]) {
+    logger.info('getRowsFromBigQuery started')
+
     const bigquery = new BigQuery()
 
     const query = `
@@ -99,6 +102,8 @@ group by val_id
         location: "US"
     })
     const [rows] = await job.getQueryResults()
+
+    logger.info('getRowsFromBigQuery finished')
     return rows
 }
 

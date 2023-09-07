@@ -1,7 +1,10 @@
 import { flatten, getRowsFromBigQuery, range } from "./generateBatchRewardData"
 import { BigQuery } from "@google-cloud/bigquery"
+import { logger } from "./logger"
 
 export async function getIitialClientOnlyClRewards() {
+    logger.info('getIitialClientOnlyClRewards started')
+
     const idsAndCounts = [
         {oracleId: 1, firstValidatorId: 524511, validatorCount: 1},
         {oracleId: 1, firstValidatorId: 458908, validatorCount: 1},
@@ -29,6 +32,8 @@ export async function getIitialClientOnlyClRewards() {
 
     const groupedSums = groupAndSumWithOracleIds(rows, idsAndCounts);
     const reduced = groupAndSumOracleIdRanges(groupedSums)
+
+    logger.info('getIitialClientOnlyClRewards finished')
     return reduced;
 }
 

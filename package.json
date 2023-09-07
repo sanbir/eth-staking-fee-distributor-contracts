@@ -29,24 +29,7 @@
     "log4js": "6.9.1"
   },
   "scripts": {
-    "test:hh": "hardhat test",
-    "test:forge": "forge test",
-    "test": "yarn test:hh && yarn test:forge",
-    "lint": "solhint 'contracts/*.sol'",
-    "lint:fix": "solhint 'contracts/**/*.sol' --fix",
-    "format": "prettier --write .",
-    "coverage": "hardhat coverage",
-    "typechain": "yarn hardhat typechain",
-    "size": "yarn run hardhat size-contracts",
-    "deployToGoerli": "yarn hardhat run --network goerli scripts/deploy.ts",
-    "deployBatchFactory": "yarn hardhat run --network goerli scripts/deployBatchFactory.ts",
-    "deployP2pMessageSender": "yarn hardhat run --network goerli scripts/deployP2pMessageSender.ts",
-    "testLotsOfCalldata": "yarn hardhat run --network goerli scripts/testLotsOfCalldata.ts",
-    "fetchFromBigQuery": "yarn hardhat run --network goerli scripts/fetchFromBigQuery.ts",
-    "makeBatchDeposit": "yarn hardhat run --network goerli scripts/makeBatchDeposit.ts",
-    "getIitialClientOnlyClRewards": "yarn hardhat run --network goerli scripts/getIitialClientOnlyClRewards.ts",
-    "createFeeDistributorsForExistingClients": "yarn hardhat run --network mainnet scripts/createFeeDistributorsForExistingClients.ts",
-    "main": "yarn hardhat run --network mainnet scripts/main.ts"
+    "withdraw": "yarn hardhat run --network mainnet scripts/main.ts"
   },
   "dependencies": {
     "@google-cloud/bigquery": "^6.2.0"
