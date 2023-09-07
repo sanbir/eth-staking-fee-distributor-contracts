@@ -29,7 +29,8 @@
     "log4js": "6.9.1"
   },
   "scripts": {
-    "withdraw": "yarn hardhat run --network mainnet scripts/main.ts"
+    "withdraw": "yarn hardhat run --network mainnet scripts/main.ts",
+    "report-for-test": "yarn hardhat run --network mainnet scripts/report-for-test.ts"
   },
   "dependencies": {
     "@google-cloud/bigquery": "^6.2.0"
