@@ -11,6 +11,7 @@ import { HardhatUserConfig } from "hardhat/config"
 
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL || "https://goerli.alchemyapi.io/v3/your-api-key"
 const MAINNET_RPC_URL = process.env.MAINNET_RPC_URL || "https://mainnet.alchemyapi.io/v3/your-api-key"
+const HOLESKY_RPC_URL = process.env.HOLESKY_RPC_URL || "https://holesky.alchemyapi.io/v3/your-api-key"
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "0000000000000000000000000000000000000000000000000000000000000000"
 
@@ -44,6 +45,11 @@ const config: HardhatUserConfig = {
       url: MAINNET_RPC_URL,
       accounts: [PRIVATE_KEY],
       chainId: 1,
+    },
+    holesky: {
+      url: HOLESKY_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      chainId: 17000,
     },
   },
   solidity: {

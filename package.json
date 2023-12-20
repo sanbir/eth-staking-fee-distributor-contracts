@@ -38,7 +38,9 @@
     "typechain": "yarn hardhat typechain",
     "size": "yarn run hardhat size-contracts",
     "deployToGoerli": "yarn hardhat run --network goerli scripts/deploy.ts",
+    "deployToHolesky": "yarn hardhat run --network holesky scripts/deploy.ts",
     "deployP2pMessageSender": "yarn hardhat run --network goerli scripts/deployP2pMessageSender.ts",
+    "deployP2pMessageSenderToHolesky": "yarn hardhat run --network holesky scripts/deployP2pMessageSender.ts",
     "testLotsOfCalldata": "yarn hardhat run --network goerli scripts/testLotsOfCalldata.ts",
     "main": "yarn hardhat run scripts/main.ts"
   }
