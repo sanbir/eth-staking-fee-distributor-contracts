@@ -40,6 +40,11 @@ const config: HardhatUserConfig = {
       accounts: [PRIVATE_KEY],
       chainId: 17000,
     },
+    mekong: {
+      url: 'https://rpc.mekong.ethpandaops.io',
+      accounts: [PRIVATE_KEY],
+      chainId: 7078815900,
+    },
     mainnet: {
       url: MAINNET_RPC_URL,
       accounts: [PRIVATE_KEY],
