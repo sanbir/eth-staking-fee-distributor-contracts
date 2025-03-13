@@ -1,0 +1,175 @@
+[
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0x8eB2277e54A2A7db9b7c0D9FA9B78dcB35f74866",
+    "oldFeeDistributors": [
+      {
+        "address": "0x854Da6D130099A772c1cD4235E53B81fA19BcD4F",
+        "clientBasisPoints": 9500,
+        "type": "ssvNew"
+      },
+      {
+        "address": "0x751379275fF4e898563360fB605cb94aA169cAE9",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0x02b97FEC5023F321865155304c71aa0c3Db25d29",
+    "oldFeeDistributors": [
+      {
+        "address": "0x2421ffa30098c19cA48e114ba7c78F566440f11e",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      },
+      {
+        "address": "0x8374f46d65c7293018ce080Be97139ef528A44ac",
+        "clientBasisPoints": 9500,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0x253e9602FF7C5664fA955dAf3242Ce8518dAbd84",
+    "oldFeeDistributors": [
+      {
+        "address": "0x28914b9a0E4DB1da5890b6353d11dfEb0410e2F5",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0xf95Aa110636F466dDEc95598e6c661b921243665",
+    "oldFeeDistributors": [
+      {
+        "address": "0xcA8Ee1F78b66C1CC17c8eFe5a029bCea408041e4",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0x71955e1b30e2b0585188466F1B241B6004d75Dc4",
+    "oldFeeDistributors": [
+      {
+        "address": "0x22718572852735ebC9d66f05290746E0f01412ED",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0x62a90760c7ce5CBaDbb64188ad075e9A52518D41",
+    "oldFeeDistributors": [
+      {
+        "address": "0x9e84c4C825d01D2FC792062F9a6504fB8344985b",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      },
+      {
+        "address": "0x6cD52E72eF4b81E87b087D032c336bF26200bE6E",
+        "clientBasisPoints": 9500,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0xe621091c9F0E8857539309bc45cfCCB7c76BA607",
+    "oldFeeDistributors": [
+      {
+        "address": "0xE371eDaD4D1EA60Fe9FD96c115a6c90A610C3182",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      },
+      {
+        "address": "0x42bE0Bc777f90F0373319402B2408E39C19707bF",
+        "clientBasisPoints": 9500,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0x5C6C197C27D5BF73929E1aBa7D451BbdF53e6cE8",
+    "oldFeeDistributors": [
+      {
+        "address": "0xb373a56623a3a0078FD63027a313a918163009A5",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      },
+      {
+        "address": "0xfb32CC3b5B9878fCc13878ec46e7361B160D559b",
+        "clientBasisPoints": 9500,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0x46fe7EE7c4E15406ae79E09B7087A61ba1725bA2",
+    "oldFeeDistributors": [
+      {
+        "address": "0x4D69Ee26Db8737d46a5e37c2359F384f2588f396",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0x9d4fd64FEB016eAb2EE450703F4eFc1b2Eb14deB",
+    "oldFeeDistributors": [
+      {
+        "address": "0xF5c57aCB857D5352CE29C37F56B1Fe8cD65b4462",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0xAa41cA850323660e85aF507548449f3abA2B5A19",
+    "oldFeeDistributors": [
+      {
+        "address": "0x208695d41B07308CFD1400FF18DaF23764C7A946",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0xEe77a176Baea6C8239FEF04a6Dea02027933F416",
+    "oldFeeDistributors": [
+      {
+        "address": "0xD5145a30B9A5394d2637cC1D5730db24316D0A5e",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      }
+    ]
+  },
+  {
+    "newFeeDistributorAddress": "",
+    "clientAddress": "0xcA30d150B590826a4633a5F99E05AD6571F9BB66",
+    "oldFeeDistributors": [
+      {
+        "address": "0x62492fAb8d7E59f92A5a03147eC32b311b92Cc5e",
+        "clientBasisPoints": 9300,
+        "type": "ssvNew"
+      },
+      {
+        "address": "0x8E8f8e4378eBC24cF31035BcbF0d4112CdF89f79",
+        "clientBasisPoints": 9500,
+        "type": "ssvNew"
+      }
+    ]
+  }
+]
