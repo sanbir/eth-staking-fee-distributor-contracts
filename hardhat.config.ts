@@ -10,6 +10,7 @@ import "hardhat-contract-sizer"
 import { HardhatUserConfig } from "hardhat/config"
 
 const MAINNET_RPC_URL = process.env.MAINNET_RPC_URL || "https://mainnet.alchemyapi.io/v3/your-api-key"
+const HOODI_RPC_URL = process.env.HOODI_RPC_URL || "https://mainnet.alchemyapi.io/v3/your-api-key"
 const HOLESKY_RPC_URL = process.env.HOLESKY_RPC_URL || "https://holesky.alchemyapi.io/v3/your-api-key"
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "0000000000000000000000000000000000000000000000000000000000000000"
@@ -20,7 +21,7 @@ const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      chainId: 1,
+      chainId: 31337,
       blockGasLimit: 30000000,
       gasPrice: 0,
       initialBaseFeePerGas: 0,
@@ -45,6 +46,11 @@ const config: HardhatUserConfig = {
       accounts: [PRIVATE_KEY],
       chainId: 7078815900,
     },
+    hoodi: {
+      url: HOODI_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      chainId: 560048,
+    },
     mainnet: {
       url: MAINNET_RPC_URL,
       accounts: [PRIVATE_KEY],
@@ -67,16 +73,16 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,
-    customChains: [
-      {
-        network: "holesky",
-        chainId: 17000,
-        urls: {
-          apiURL: "https://api-holesky.etherscan.io/api",
-          browserURL: "https://holesky.etherscan.io"
-        }
-      }
-    ]
+    // customChains: [
+    //   {
+    //     network: "holesky",
+    //     chainId: 17000,
+    //     urls: {
+    //       apiURL: "https://api-holesky.etherscan.io/api",
+    //       browserURL: "https://holesky.etherscan.io"
+    //     }
+    //   }
+    // ]
   },
   gasReporter: {
     enabled: true,
