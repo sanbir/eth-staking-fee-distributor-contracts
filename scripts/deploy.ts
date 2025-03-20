@@ -35,7 +35,7 @@ async function main() {
 
         // deploy P2pEth2Depositor contract
         const p2pEth2DepositorSignedByDeployer = await new P2pEth2Depositor__factory(deployerSigner).deploy(
-            chainName === 'mainnet',
+            true,
             ethers.constants.AddressZero,
             feeDistributorFactorySignedByDeployer.address,
             {gasLimit: 10000000, maxPriorityFeePerGas: 40000000000, maxFeePerGas: 400000000000}
