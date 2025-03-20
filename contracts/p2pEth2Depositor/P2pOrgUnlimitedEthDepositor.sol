@@ -51,9 +51,7 @@ contract P2pOrgUnlimitedEthDepositor is ERC165, IP2pOrgUnlimitedEthDepositor {
             _feeDistributorFactory
         );
 
-        i_depositContract = block.chainid == 1
-            ? IDepositContract(0x00000000219ab540356cBB839Cbe05303d7705Fa) // real Mainnet DepositContract
-            : IDepositContract(0x4242424242424242424242424242424242424242); // real Holesky DepositContract
+        i_depositContract = IDepositContract(0x00000000219ab540356cBB839Cbe05303d7705Fa); // real Holesky DepositContract
     }
 
     /// @notice ETH should only be sent to this contract along with the `addEth` function
