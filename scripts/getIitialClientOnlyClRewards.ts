@@ -1,6 +1,7 @@
 import { flatten, getRowsFromBigQuery, range } from "./generateBatchRewardData"
 import { BigQuery } from "@google-cloud/bigquery"
 import { logger } from "./logger"
+import fs from "fs"
 
 export async function getIitialClientOnlyClRewards() {
     logger.info('getIitialClientOnlyClRewards started')
@@ -144,11 +145,23 @@ async function main() {
     console.log("pubkey,feedivider")
     const data = await getValidatorData();
     data.map(d => console.log(d.pubKey + ',' + d.feeDivider))
+
+    const grouped = Object.values(
+        data.reduce((acc, { feeDivider, pubKey }) => {
+            if (!acc[feeDivider]) {
+                acc[feeDivider] = { fdAddress: feeDivider, pubkeys: [] };
+            }
+            acc[feeDivider].pubkeys.push(pubKey);
+            return acc;
+        }, {})
+    );
+
+    fs.writeFileSync("ManualFdPubkeys.json", JSON.stringify(grouped));
 }
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
-// main().catch((error) => {
-//     console.error(error);
-//     process.exitCode = 1;
-// });
+main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+});

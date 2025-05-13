@@ -30,6 +30,7 @@
   },
   "scripts": {
     "withdraw": "yarn hardhat run --network mainnet scripts/main.ts",
+    "getIitialClientOnlyClRewards": "yarn hardhat run --network mainnet scripts/getIitialClientOnlyClRewards.ts",
     "report-for-test": "yarn hardhat run --network mainnet scripts/report-for-test.ts"
   },
   "dependencies": {

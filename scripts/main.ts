@@ -39,11 +39,11 @@ async function main() {
 
     const tree = buildMerkleTreeForValidatorBatch(batchRewardData)
 
-    await makeOracleReport('0x105D2F6C358d185d1D81a73c1F76a75a2Cc500ed', tree.root, settings)
+    // await makeOracleReport('0x105D2F6C358d185d1D81a73c1F76a75a2Cc500ed', tree.root, settings)
     // Send tree.json file to the website and to the withdrawer
     fs.writeFileSync("tree.json", JSON.stringify(tree.dump()));
 
-    await withdrawAll(feeDistributorFactoryAddress, settings)
+    // await withdrawAll(feeDistributorFactoryAddress, settings)
 
     logger.info('Finished')
 }
