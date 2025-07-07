@@ -40,6 +40,11 @@ const config: HardhatUserConfig = {
       accounts: [PRIVATE_KEY],
       chainId: 17000,
     },
+    hoodi: {
+      url: 'https://ethereum-hoodi-rpc.publicnode.com',
+      accounts: [PRIVATE_KEY],
+      chainId: 560048,
+    },
     mainnet: {
       url: MAINNET_RPC_URL,
       accounts: [PRIVATE_KEY],
@@ -64,11 +69,11 @@ const config: HardhatUserConfig = {
     apiKey: ETHERSCAN_API_KEY,
     customChains: [
       {
-        network: "holesky",
-        chainId: 17000,
+        network: "hoodi",
+        chainId: 560048,
         urls: {
-          apiURL: "https://api-holesky.etherscan.io/api",
-          browserURL: "https://holesky.etherscan.io"
+          apiURL: "https://api-hoodi.etherscan.io/api",
+          browserURL: "https://hoodi.etherscan.io"
         }
       }
     ]
